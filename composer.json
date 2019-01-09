@@ -1,10 +1,10 @@
 {
-    "name": "xuezhitech/tp5-captcha",
-    "description": "captcha api package for thinkphp5",
+    "name": "topthink/think-captcha",
+    "description": "captcha package for thinkphp5",
     "authors": [
         {
-            "name": "jinxuezhi",
-            "email": "jinxuezhi@xuezhi.info"
+            "name": "yunwuxin",
+            "email": "448901948@qq.com"
         }
     ],
     "license": "Apache-2.0",
@@ -13,7 +13,10 @@
     },
     "autoload": {
         "psr-4": {
-            "xuezhitech\\captcha\\": "src/"
-        }
+            "think\\captcha\\": "src/"
+        },
+        "files": [
+            "src/helper.php"
+        ]
     }
 }
