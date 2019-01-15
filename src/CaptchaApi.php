@@ -130,7 +130,7 @@ class CaptchaApi
      * @param string $id 要生成验证码的标识
      * @return \think\Response
      */
-    public function entry($id = '')
+    public function entry($id = '',$debug=false)
     {
         // 图片宽(px)
         $this->imageW || $this->imageW = $this->length * $this->fontSize * 1.5 + $this->length * $this->fontSize / 2;
@@ -202,8 +202,12 @@ class CaptchaApi
         $content = ob_get_clean();
         imagedestroy($this->im);
         $content = 'data:image/png;base64,'.base64_encode($content);
-        var_dump($secode);
-        return ['captcha_key'=>$key,'src'=>$content];
+        if ( $debug===true ){
+            return ['captcha_key'=>$key,'src'=>$content,'verify_code'=>$secode['verify_code'],'verify_time'=>date('Y-m-d H:i:s',$secode['verify_time'])];
+        }else{
+            return ['captcha_key'=>$key,'src'=>$content];
+        }
+
     }
 
     /**
